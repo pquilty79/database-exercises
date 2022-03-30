@@ -29,12 +29,13 @@ WHERE dm.to_date > NOW() AND s.to_date > NOW()
 ORDER BY Department_Name;
 
 
-SELECT CONCAT(sub.first_name, ' ', sub.last_name) AS EMPLOYEE, d.dept_name AS DEPARTMENT,
-       CONCAT(sup.first_name, ' ', sup.last_name) AS MANAGER
+SELECT CONCAT(a.first_name, ' ', a.last_name) AS EMPLOYEE, d.dept_name AS DEPARTMENT,
+       CONCAT(b.first_name, ' ', b.last_name) AS MANAGER
 FROM departments AS d
          JOIN dept_manager ON d.dept_no = dept_manager.dept_no
          JOIN dept_emp ON d.dept_no = dept_emp.dept_no
-         JOIN employees sub ON sub.emp_no = dept_emp.emp_no
-         JOIN employees sup ON dept_manager.emp_no = sup.emp_no
+         JOIN employees a ON a.emp_no = dept_emp.emp_no
+         JOIN employees b ON dept_manager.emp_no = b.emp_no
 WHERE dept_manager.to_date > NOW() AND dept_emp.to_date > NOW()
-ORDER BY DEPARTMENT, sub.emp_no;
+ORDER BY DEPARTMENT, b.emp_no;
+
