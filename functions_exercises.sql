@@ -8,12 +8,12 @@ where month(birth_date) = 12
   and day(birth_date) = 25;
 
 select * from employees
-where year(birth_date) between 1990 and 1999
+where year(hire_date) between 1990 and 1999
   and day(birth_date) = 25
   and month(birth_date) = 12
-order by birth_date desc, hire_date desc;
+order by birth_date asc, hire_date desc;
 
 select concat(first_name,' ', last_name), datediff(now(), hire_date) from employees
-where year(birth_date) between 1990 and 1999
+where year(hire_date) between 1990 and 1999
   and day(birth_date) = 25
   and month(birth_date) = 12
