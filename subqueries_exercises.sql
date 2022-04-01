@@ -38,4 +38,5 @@ WHERE dm.to_date > NOW() AND dm.emp_no IN (
 SELECT first_name, last_name
 FROM employees AS e
         JOIN salaries s on e.emp_no = s.emp_no
-order by salary DESC limit 1
+order by salary DESC limit 1;
+
